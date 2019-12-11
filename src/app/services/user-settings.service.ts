@@ -1,7 +1,7 @@
 import { Inject, Injectable } from '@angular/core';
 import { BehaviorSubject } from 'rxjs';
 import { LOCAL_STORAGE, StorageService } from 'ngx-webstorage-service';
-import { UserSettings } from './models/user-settings';
+import { UserSettings } from '../models/user-settings';
 
 const USER_SETTINGS_KEY = 'user-settings';
 

@@ -2,7 +2,7 @@
   <a mat-button routerLink="/">Home</a>
   <a mat-button routerLink="/settings">Settings</a>
   <span fxFlex></span>
-  <span>5 favorited pokemon</span>
+  <span>{{ favoritePokemonCount$ | async }} favorited pokemon</span>
 </mat-toolbar>
 
 <router-outlet></router-outlet>

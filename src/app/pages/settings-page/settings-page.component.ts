@@ -1,8 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup } from '@angular/forms';
-import { UserSettingsService } from '../user-settings.service';
+import { UserSettingsService } from '../../services/user-settings.service';
 import { MatSnackBar } from '@angular/material';
-import { UserSettings } from '../models/user-settings';
+import { UserSettings } from '../../models/user-settings';
 
 const AVAILABLE_PAGE_SIZES = [
   20,

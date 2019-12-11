@@ -1,9 +1,9 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { map, switchMap } from 'rxjs/operators';
-import { BulkFetchResult } from './models/fetch-results';
+import { BulkFetchResult } from '../models/fetch-results';
 import { combineLatest, Observable } from 'rxjs';
-import { Pokemon, PokemonAbility, PokemonList } from './models/pokemon';
+import { Pokemon, PokemonAbility, PokemonList } from '../models/pokemon';
 
 const POKEMON_ENDPOINT = 'https://pokeapi.co/api/v2/pokemon/';
 
@@ -70,12 +70,12 @@ export class ApiService {
   private getAbility(endpoint: string): Observable<PokemonAbility> {
     return this.httpClient.get(endpoint).pipe(
       map((r: any) => {
-        const desc = r.effect_entries
+        const englishEntry = r.effect_entries
           .find(entry => entry.language.name === 'en');
 
         return {
           name: r.name,
-          description: desc.effect
+          description: englishEntry.effect
         };
       })
     );

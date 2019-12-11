@@ -1,7 +1,7 @@
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
-import { DirectoryPageComponent } from './directory-page/directory-page.component';
-import { SettingsPageComponent } from './settings-page/settings-page.component';
+import { DirectoryPageComponent } from './pages/directory-page/directory-page.component';
+import { SettingsPageComponent } from './pages/settings-page/settings-page.component';
 
 
 const routes: Routes = [
