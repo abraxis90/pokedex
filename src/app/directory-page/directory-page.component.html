@@ -1,0 +1,47 @@
+<div class="directory-page-container" fxLayout="row">
+
+  <div class="pokemon-list"
+       *ngIf="(pokemonList$ | async) as pokemonList"
+       fxLayout="column" fxLayoutAlign="start center">
+
+    <div class="list-header">
+      <p>{{ pokemonList.total }} pokemon</p>
+    </div>
+
+    <mat-action-list *ngFor="let pokemon of pokemonList.pokemon">
+      <button (click)="selectPokemon(pokemon.url)" mat-list-item>
+        {{ pokemon.name }}
+      </button>
+    </mat-action-list>
+
+  </div>
+
+  <div class="pokemon-details" fxLayout="column" fxLayoutAlign="center center">
+
+    <mat-card *ngIf="(selectedPokemon$ | async) as selectedPokemon else noPokemon">
+      <mat-card-header>
+        <h3 mat-card-title>{{ selectedPokemon.name }}</h3>
+      </mat-card-header>
+
+      <img mat-card-image [src]="selectedPokemon.picture" [alt]="selectedPokemon.name"/>
+
+      <mat-card-content>
+        <p>Height: {{ selectedPokemon.height }} m</p>
+        <p>Weight: {{ selectedPokemon.weight }} kg</p>
+        <div class="ability-container">
+          <p>Abilities:</p>
+          <p *ngFor="let ability of selectedPokemon.abilities">
+            <strong>{{ ability.name }}</strong>: {{ ability.description }}
+          </p>
+        </div>
+      </mat-card-content>
+
+    </mat-card>
+
+    <ng-template #noPokemon>
+      <p>Select a pokemon to begin</p>
+    </ng-template>
+
+  </div>
+
+</div>
